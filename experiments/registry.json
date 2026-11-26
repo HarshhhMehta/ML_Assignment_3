@@ -1,0 +1,301 @@
+{
+  "Q1a_Standard_MLP": {
+    "experiment_id": "Q1a_Standard_MLP",
+    "question": "Q1(a)",
+    "model_name": "StandardMLP",
+    "param_count": 112330,
+    "config": {
+      "epochs": 20,
+      "batch_size": 64,
+      "lr": 0.001,
+      "seed": 26013
+    },
+    "val_metric": {
+      "best_val_acc": 0.5112,
+      "best_epoch": 19
+    },
+    "test_metric": {
+      "test_acc": 0.5077,
+      "test_loss": 1.4512940544128419
+    },
+    "checkpoint_path": "checkpoints/q1a_standard_mlp.pt",
+    "reused_from": null,
+    "notes": "Baseline standard MLP with global connectivity.",
+    "timestamp": "2026-11-22 16:01:41"
+  },
+  "Q1a_Patch_LCN": {
+    "experiment_id": "Q1a_Patch_LCN",
+    "question": "Q1(a)",
+    "model_name": "PatchLocallyConnectedMLP",
+    "param_count": 113690,
+    "config": {
+      "epochs": 20,
+      "batch_size": 64,
+      "lr": 0.001,
+      "seed": 26013
+    },
+    "val_metric": {
+      "best_val_acc": 0.5868,
+      "best_epoch": 20
+    },
+    "test_metric": {
+      "test_acc": 0.5794,
+      "test_loss": 1.2173199968338013
+    },
+    "checkpoint_path": "checkpoints/q1a_patch_lcn.pt",
+    "reused_from": null,
+    "notes": "Locally connected model isolating spatial locality from weight sharing.",
+    "timestamp": "2026-11-22 16:05:57"
+  },
+  "Q1b_Memorization": {
+    "experiment_id": "Q1b_Memorization",
+    "question": "Q1(b)",
+    "model_name": "HighCapacityMLP",
+    "param_count": 1841162,
+    "config": {
+      "epochs": 30,
+      "batch_size": 128,
+      "noise_ratio": 0.5,
+      "lr": 0.001,
+      "seed": 26013
+    },
+    "val_metric": {
+      "peak_val_acc": 0.443,
+      "peak_epoch": 5,
+      "final_val_acc": 0.3222
+    },
+    "test_metric": {
+      "final_train_acc_noisy": 0.6701777777777778,
+      "final_gen_gap": 0.3479777777777778
+    },
+    "checkpoint_path": "checkpoints/q1b_memorization_model.pt",
+    "reused_from": null,
+    "notes": "Tracks early generalizable feature learning vs late brute-force label memorization.",
+    "timestamp": "2026-11-22 16:19:47"
+  },
+  "Q2a_Fair_CNN_Clean": {
+    "experiment_id": "Q2a_Fair_CNN_Clean",
+    "question": "Q2(a)",
+    "model_name": "FairCNN",
+    "param_count": 111906,
+    "config": {
+      "epochs": 20,
+      "batch_size": 64,
+      "lr": 0.001,
+      "seed": 26013
+    },
+    "val_metric": {
+      "val_acc": 0.7205
+    },
+    "test_metric": {
+      "test_acc": 0.7205
+    },
+    "checkpoint_path": "checkpoints/q2a_fair_cnn_clean.pt",
+    "reused_from": null,
+    "notes": "Fair CNN baseline matching ~112k parameter budget of MLP.",
+    "timestamp": "2026-11-22 16:41:40"
+  },
+  "Q2b_MLP_Pixel_Permuted": {
+    "experiment_id": "Q2b_MLP_Pixel_Permuted",
+    "question": "Q2(b)",
+    "model_name": "StandardMLP",
+    "param_count": 112330,
+    "config": {
+      "epochs": 20,
+      "batch_size": 64,
+      "transform": "PixelPermutation",
+      "seed": 26013
+    },
+    "val_metric": {
+      "test_acc": 0.5055
+    },
+    "test_metric": {
+      "test_acc": 0.5055
+    },
+    "checkpoint_path": "checkpoints/q2b_mlp_pixel_permuted.pt",
+    "reused_from": null,
+    "notes": "MLP trained and evaluated on pixel-permuted CIFAR-10.",
+    "timestamp": "2026-11-22 16:44:51"
+  },
+  "Q2b_CNN_Pixel_Permuted": {
+    "experiment_id": "Q2b_CNN_Pixel_Permuted",
+    "question": "Q2(b)",
+    "model_name": "FairCNN",
+    "param_count": 111906,
+    "config": {
+      "epochs": 20,
+      "batch_size": 64,
+      "transform": "PixelPermutation",
+      "seed": 26013
+    },
+    "val_metric": {
+      "test_acc": 0.5389
+    },
+    "test_metric": {
+      "test_acc": 0.5389
+    },
+    "checkpoint_path": "checkpoints/q2b_cnn_pixel_permuted.pt",
+    "reused_from": null,
+    "notes": "CNN trained and evaluated on pixel-permuted CIFAR-10.",
+    "timestamp": "2026-11-22 19:22:13"
+  },
+  "Q2c_MLP_Patch_Permuted": {
+    "experiment_id": "Q2c_MLP_Patch_Permuted",
+    "question": "Q2(c)",
+    "model_name": "StandardMLP",
+    "param_count": 112330,
+    "config": {
+      "epochs": 20,
+      "batch_size": 64,
+      "transform": "PatchPermutation",
+      "seed": 26013
+    },
+    "val_metric": {
+      "test_acc": 0.5017
+    },
+    "test_metric": {
+      "test_acc": 0.5017
+    },
+    "checkpoint_path": "checkpoints/q2c_mlp_patch_permuted.pt",
+    "reused_from": null,
+    "notes": "MLP trained and evaluated on 8x8 patch-permuted CIFAR-10.",
+    "timestamp": "2026-11-22 19:24:51"
+  },
+  "Q2c_CNN_Patch_Permuted": {
+    "experiment_id": "Q2c_CNN_Patch_Permuted",
+    "question": "Q2(c)",
+    "model_name": "FairCNN",
+    "param_count": 111906,
+    "config": {
+      "epochs": 20,
+      "batch_size": 64,
+      "transform": "PatchPermutation",
+      "seed": 26013
+    },
+    "val_metric": {
+      "test_acc": 0.6556
+    },
+    "test_metric": {
+      "test_acc": 0.6556
+    },
+    "checkpoint_path": "checkpoints/q2c_cnn_patch_permuted.pt",
+    "reused_from": null,
+    "notes": "CNN trained and evaluated on 8x8 patch-permuted CIFAR-10.",
+    "timestamp": "2026-11-22 19:48:01"
+  },
+  "Q3a_AE_b64": {
+    "experiment_id": "Q3a_AE_b64",
+    "question": "Q3(a)",
+    "model_name": "ConvAutoencoder_b64",
+    "param_count": 191843,
+    "config": {
+      "bottleneck_dim": 64,
+      "epochs": 20,
+      "batch_size": 64,
+      "lr": 0.001,
+      "seed": 26013
+    },
+    "val_metric": {
+      "best_val_mse": 0.008134491436183453
+    },
+    "test_metric": {
+      "test_mse": 0.008159245643019676
+    },
+    "checkpoint_path": "checkpoints/q3a_clean_ae_b64.pt",
+    "reused_from": null,
+    "notes": "Clean autoencoder with bottleneck capacity 64.",
+    "timestamp": "2026-11-23 00:42:59"
+  },
+  "Q3a_AE_b256": {
+    "experiment_id": "Q3a_AE_b256",
+    "question": "Q3(a)",
+    "model_name": "ConvAutoencoder_b256",
+    "param_count": 290339,
+    "config": {
+      "bottleneck_dim": 256,
+      "epochs": 20,
+      "batch_size": 64,
+      "lr": 0.001,
+      "seed": 26013
+    },
+    "val_metric": {
+      "best_val_mse": 0.006372782377898693
+    },
+    "test_metric": {
+      "test_mse": 0.0064088998086750506
+    },
+    "checkpoint_path": "checkpoints/q3a_clean_ae_b256.pt",
+    "reused_from": null,
+    "notes": "Clean autoencoder with bottleneck capacity 256.",
+    "timestamp": "2026-11-23 00:43:01"
+  },
+  "Q3a_AE_b1024": {
+    "experiment_id": "Q3a_AE_b1024",
+    "question": "Q3(a)",
+    "model_name": "ConvAutoencoder_b1024",
+    "param_count": 684323,
+    "config": {
+      "bottleneck_dim": 1024,
+      "epochs": 20,
+      "batch_size": 64,
+      "lr": 0.001,
+      "seed": 26013
+    },
+    "val_metric": {
+      "best_val_mse": 0.0058548366449773315
+    },
+    "test_metric": {
+      "test_mse": 0.005887540784478187
+    },
+    "checkpoint_path": "checkpoints/q3a_clean_ae_b1024.pt",
+    "reused_from": null,
+    "notes": "Clean autoencoder with bottleneck capacity 1024.",
+    "timestamp": "2026-11-23 00:43:04"
+  },
+  "Q3b_DAE_b256": {
+    "experiment_id": "Q3b_DAE_b256",
+    "question": "Q3(b)",
+    "model_name": "ConvAutoencoder_DAE_b256",
+    "param_count": 290339,
+    "config": {
+      "bottleneck_dim": 256,
+      "noise_sigma": 0.2,
+      "epochs": 20,
+      "batch_size": 64,
+      "lr": 0.001,
+      "seed": 26013
+    },
+    "val_metric": {
+      "best_val_mse": 0.007734013764560223
+    },
+    "test_metric": {
+      "test_mse": 0.007760370294749737
+    },
+    "checkpoint_path": "checkpoints/q3b_denoising_ae.pt",
+    "reused_from": null,
+    "notes": "Denoising autoencoder trained with Gaussian noise sigma=0.2.",
+    "timestamp": "2026-11-23 00:57:42"
+  },
+  "Q4a_Selected_SVM": {
+    "experiment_id": "Q4a_Selected_SVM",
+    "question": "Q4(a)",
+    "model_name": "SVM_rbf_C0.1",
+    "param_count": 3124,
+    "config": {
+      "kernel": "rbf",
+      "C": 0.1,
+      "train_subset_size": 5000
+    },
+    "val_metric": {
+      "val_acc": 0.7288,
+      "sv_fraction": 0.6248
+    },
+    "test_metric": {
+      "test_acc": 0.7164
+    },
+    "checkpoint_path": null,
+    "reused_from": "Q2a_Fair_CNN_Clean (Frozen Representation)",
+    "notes": "Validation-selected SVM evaluated strictly once on official test set.",
+    "timestamp": "2026-11-23 01:13:29"
+  }
+}

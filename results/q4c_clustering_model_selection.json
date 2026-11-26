@@ -1,0 +1,58 @@
+{
+  "kmeans_selection": [
+    {
+      "k": 6,
+      "train_inertia": 136526.875,
+      "train_silhouette": 0.19333596527576447
+    },
+    {
+      "k": 8,
+      "train_inertia": 121791.65625,
+      "train_silhouette": 0.17791853845119476
+    },
+    {
+      "k": 10,
+      "train_inertia": 113816.3125,
+      "train_silhouette": 0.16324260830879211
+    },
+    {
+      "k": 12,
+      "train_inertia": 109659.75,
+      "train_silhouette": 0.146267831325531
+    },
+    {
+      "k": 14,
+      "train_inertia": 106364.515625,
+      "train_silhouette": 0.1341239959001541
+    }
+  ],
+  "gmm_selection": [
+    {
+      "k": 6,
+      "train_bic": 177493.70204661658,
+      "train_aic": 172455.91170965185
+    },
+    {
+      "k": 8,
+      "train_bic": 153461.16126587376,
+      "train_aic": 146741.9350855236
+    },
+    {
+      "k": 10,
+      "train_bic": 138307.63749111973,
+      "train_aic": 129906.97546738421
+    },
+    {
+      "k": 12,
+      "train_bic": 120570.30896412316,
+      "train_aic": 110488.21109700225
+    },
+    {
+      "k": 14,
+      "train_bic": 116214.93053149551,
+      "train_aic": 104451.3968209892
+    }
+  ],
+  "selected_k": 10,
+  "selection_methodology": "Unsupervised training-data-only evaluation using Inertia elbow, Silhouette score, and GMM BIC/AIC without any access to ground-truth labels."
+}

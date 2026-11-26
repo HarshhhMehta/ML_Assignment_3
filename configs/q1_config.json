@@ -1,0 +1,45 @@
+{
+  "seed": 26013,
+  "roll_number": "m26csa013",
+  "dataset": "CIFAR-10",
+  "data_split": {
+    "total_train_raw": 50000,
+    "train_split": 45000,
+    "val_split": 5000,
+    "test_split": 10000,
+    "stratified": true
+  },
+  "q1a_standard_mlp": {
+    "architecture": "3072 -> 36 -> 36 -> 10",
+    "parameters": 112330,
+    "receptive_field": "global (32x32)",
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.01,
+    "scheduler": "CosineAnnealingLR",
+    "batch_size": 64,
+    "epochs": 20
+  },
+  "q1a_patch_lcn": {
+    "architecture": "16 independent 8x8 patches (35 units each) -> 560 -> 10",
+    "parameters": 113690,
+    "receptive_field": "local (8x8)",
+    "weight_sharing": false,
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.01,
+    "scheduler": "CosineAnnealingLR",
+    "batch_size": 64,
+    "epochs": 20
+  },
+  "q1b_memorization": {
+    "architecture": "3072 -> 512 -> 256 -> 10",
+    "parameters": 1841162,
+    "label_noise_nominal": 0.50,
+    "label_noise_effective": 0.45,
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "batch_size": 64,
+    "epochs": 25
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "n_train": 45000,
+  "nominal_noise_rate": 0.5,
+  "effective_noise_rate": 0.45,
+  "unselected_clean_subset_acc": 0.7859555555555555,
+  "corrupted_subset_acc_vs_noisy_target": 0.5947111111111111,
+  "corrupted_subset_acc_vs_true_clean_target": 0.1990222222222222,
+  "clean_val_acc": 0.3222,
+  "discrepancy_gap_noisy_vs_val": 0.2725111111111111,
+  "true_generalization_gap_clean_train_vs_val": 0.46375555555555553
+}

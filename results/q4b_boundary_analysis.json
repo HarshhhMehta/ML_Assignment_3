@@ -1,0 +1,143 @@
+[
+  {
+    "pair_info": {
+      "class_i": 3,
+      "class_j": 5,
+      "name_i": "cat",
+      "name_j": "dog",
+      "error_i_as_j": 208,
+      "error_j_as_i": 183,
+      "total_symmetric_error": 391
+    },
+    "boundary_geometry": {
+      "ovo_column_index": 25,
+      "score_formulation": "Raw unnormalized pairwise One-vs-One decision score f_ij(x) = sum alpha_k y_k K(x_k, x) + b_ij",
+      "closest_test_indices": [
+        4696,
+        8882,
+        4140,
+        1031
+      ],
+      "closest_raw_decision_scores": [
+        0.0003660555388925804,
+        0.001347589478318173,
+        -0.002862672281803952,
+        0.003708739317670108
+      ],
+      "closest_decision_scores": [
+        0.0003660555388925804,
+        0.001347589478318173,
+        -0.002862672281803952,
+        0.003708739317670108
+      ],
+      "closest_abs_margins": [
+        0.0003660555388925804,
+        0.001347589478318173,
+        0.002862672281803952,
+        0.003708739317670108
+      ],
+      "sv_global_indices": [
+        16904,
+        21864,
+        6017,
+        44229
+      ],
+      "num_sv_class_i": 432,
+      "num_sv_class_j": 380
+    }
+  },
+  {
+    "pair_info": {
+      "class_i": 1,
+      "class_j": 9,
+      "name_i": "automobile",
+      "name_j": "truck",
+      "error_i_as_j": 98,
+      "error_j_as_i": 83,
+      "total_symmetric_error": 181
+    },
+    "boundary_geometry": {
+      "ovo_column_index": 16,
+      "score_formulation": "Raw unnormalized pairwise One-vs-One decision score f_ij(x) = sum alpha_k y_k K(x_k, x) + b_ij",
+      "closest_test_indices": [
+        2810,
+        744,
+        1008,
+        6639
+      ],
+      "closest_raw_decision_scores": [
+        -0.0006208313451659675,
+        -0.0021400190370083755,
+        -0.003853014452771919,
+        0.005459344499062352
+      ],
+      "closest_decision_scores": [
+        -0.0006208313451659675,
+        -0.0021400190370083755,
+        -0.003853014452771919,
+        0.005459344499062352
+      ],
+      "closest_abs_margins": [
+        0.0006208313451659675,
+        0.0021400190370083755,
+        0.003853014452771919,
+        0.005459344499062352
+      ],
+      "sv_global_indices": [
+        35884,
+        33974,
+        38370,
+        22898
+      ],
+      "num_sv_class_i": 243,
+      "num_sv_class_j": 246
+    }
+  },
+  {
+    "pair_info": {
+      "class_i": 2,
+      "class_j": 4,
+      "name_i": "bird",
+      "name_j": "deer",
+      "error_i_as_j": 81,
+      "error_j_as_i": 90,
+      "total_symmetric_error": 171
+    },
+    "boundary_geometry": {
+      "ovo_column_index": 18,
+      "score_formulation": "Raw unnormalized pairwise One-vs-One decision score f_ij(x) = sum alpha_k y_k K(x_k, x) + b_ij",
+      "closest_test_indices": [
+        9035,
+        7940,
+        718,
+        2242
+      ],
+      "closest_raw_decision_scores": [
+        -0.0007083729622026878,
+        0.0015150411950689696,
+        0.002903472032780831,
+        -0.003023076792655878
+      ],
+      "closest_decision_scores": [
+        -0.0007083729622026878,
+        0.0015150411950689696,
+        0.002903472032780831,
+        -0.003023076792655878
+      ],
+      "closest_abs_margins": [
+        0.0007083729622026878,
+        0.0015150411950689696,
+        0.002903472032780831,
+        0.003023076792655878
+      ],
+      "sv_global_indices": [
+        31231,
+        709,
+        5119,
+        12803
+      ],
+      "num_sv_class_i": 373,
+      "num_sv_class_j": 345
+    }
+  }
+]

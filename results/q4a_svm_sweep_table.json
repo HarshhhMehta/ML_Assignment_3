@@ -1,0 +1,137 @@
+[
+  {
+    "kernel": "linear",
+    "C": 0.01,
+    "train_acc": 0.9532,
+    "val_acc": 0.7284,
+    "n_support_vectors": 2018,
+    "sv_fraction": 0.4036,
+    "train_size": 5000
+  },
+  {
+    "kernel": "linear",
+    "C": 0.1,
+    "train_acc": 0.9576,
+    "val_acc": 0.7218,
+    "n_support_vectors": 1118,
+    "sv_fraction": 0.2236,
+    "train_size": 5000
+  },
+  {
+    "kernel": "linear",
+    "C": 1.0,
+    "train_acc": 0.9688,
+    "val_acc": 0.715,
+    "n_support_vectors": 875,
+    "sv_fraction": 0.175,
+    "train_size": 5000
+  },
+  {
+    "kernel": "linear",
+    "C": 10.0,
+    "train_acc": 0.978,
+    "val_acc": 0.7054,
+    "n_support_vectors": 854,
+    "sv_fraction": 0.1708,
+    "train_size": 5000
+  },
+  {
+    "kernel": "linear",
+    "C": 100.0,
+    "train_acc": 0.9852,
+    "val_acc": 0.6998,
+    "n_support_vectors": 844,
+    "sv_fraction": 0.1688,
+    "train_size": 5000
+  },
+  {
+    "kernel": "rbf",
+    "C": 0.01,
+    "train_acc": 0.914,
+    "val_acc": 0.7222,
+    "n_support_vectors": 4828,
+    "sv_fraction": 0.9656,
+    "train_size": 5000
+  },
+  {
+    "kernel": "rbf",
+    "C": 0.1,
+    "train_acc": 0.9474,
+    "val_acc": 0.7288,
+    "n_support_vectors": 3124,
+    "sv_fraction": 0.6248,
+    "train_size": 5000
+  },
+  {
+    "kernel": "rbf",
+    "C": 1.0,
+    "train_acc": 0.9628,
+    "val_acc": 0.7252,
+    "n_support_vectors": 1788,
+    "sv_fraction": 0.3576,
+    "train_size": 5000
+  },
+  {
+    "kernel": "rbf",
+    "C": 10.0,
+    "train_acc": 0.9832,
+    "val_acc": 0.7192,
+    "n_support_vectors": 1343,
+    "sv_fraction": 0.2686,
+    "train_size": 5000
+  },
+  {
+    "kernel": "rbf",
+    "C": 100.0,
+    "train_acc": 0.999,
+    "val_acc": 0.7176,
+    "n_support_vectors": 1374,
+    "sv_fraction": 0.2748,
+    "train_size": 5000
+  },
+  {
+    "kernel": "poly",
+    "C": 0.01,
+    "train_acc": 0.6232,
+    "val_acc": 0.5238,
+    "n_support_vectors": 4324,
+    "sv_fraction": 0.8648,
+    "train_size": 5000
+  },
+  {
+    "kernel": "poly",
+    "C": 0.1,
+    "train_acc": 0.8454,
+    "val_acc": 0.6702,
+    "n_support_vectors": 2983,
+    "sv_fraction": 0.5966,
+    "train_size": 5000
+  },
+  {
+    "kernel": "poly",
+    "C": 1.0,
+    "train_acc": 0.9336,
+    "val_acc": 0.7118,
+    "n_support_vectors": 1840,
+    "sv_fraction": 0.368,
+    "train_size": 5000
+  },
+  {
+    "kernel": "poly",
+    "C": 10.0,
+    "train_acc": 0.9726,
+    "val_acc": 0.7142,
+    "n_support_vectors": 1219,
+    "sv_fraction": 0.2438,
+    "train_size": 5000
+  },
+  {
+    "kernel": "poly",
+    "C": 100.0,
+    "train_acc": 0.9948,
+    "val_acc": 0.7058,
+    "n_support_vectors": 1141,
+    "sv_fraction": 0.2282,
+    "train_size": 5000
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "seed": 26013,
+  "roll_number": "m26csa013",
+  "dataset": "CIFAR-10",
+  "representation": {
+    "source_model": "FairCNN (Q2a clean baseline, test acc 72.05%)",
+    "layer": "Penultimate linear representation",
+    "dimension": 64,
+    "feature_scaling": "StandardScaler fitted strictly on training subset"
+  },
+  "svm_sweep": {
+    "subset_size": 5000,
+    "samples_per_class": 500,
+    "c_values": [0.01, 0.1, 1.0, 10.0, 100.0],
+    "kernels": ["linear", "rbf", "poly"],
+    "poly_degree": 3,
+    "selection_criterion": "Validation accuracy on full 5000-sample validation set",
+    "decision_function_shape": "ovo"
+  },
+  "clustering": {
+    "candidate_k": [6, 8, 10, 12, 14],
+    "selection_protocol": "Train-only label-free (inertia elbow, silhouette, BIC/AIC)",
+    "selected_k": 10,
+    "algorithms": ["KMeans", "GaussianMixture"]
+  }
+}

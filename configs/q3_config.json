@@ -1,0 +1,32 @@
+{
+  "seed": 26013,
+  "roll_number": "m26csa013",
+  "dataset": "CIFAR-10",
+  "autoencoders": {
+    "clean_ae_sweep": {
+      "bottlenecks": [64, 256, 1024],
+      "encoder": "Conv(3->32) -> Conv(32->48) -> Conv(48->64) -> Conv(64->64) -> Flatten(256) -> Linear(256->d)",
+      "decoder": "Linear(d->256) -> Reshape(64x2x2) -> Deconv(64->64) -> Deconv(64->48) -> Deconv(48->32) -> Deconv(32->3) -> Sigmoid",
+      "loss": "MSELoss",
+      "optimizer": "AdamW",
+      "lr": 0.001,
+      "epochs": 20,
+      "batch_size": 64
+    },
+    "denoising_ae": {
+      "bottleneck": 256,
+      "noise_type": "Gaussian additive",
+      "sigma": 0.2,
+      "clip_range": [0.0, 1.0],
+      "supervision": "Unsupervised (zero class labels)",
+      "target": "Uncorrupted clean image"
+    },
+    "linear_probe": {
+      "protocol": "Frozen encoder weights, train single linear layer (d -> 10)",
+      "optimizer": "Adam",
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "normalization": "StandardScaler fitted on train features only"
+    }
+  }
+}

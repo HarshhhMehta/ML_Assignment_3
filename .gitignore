@@ -1,0 +1,48 @@
+# =====================================================================
+# Git Ignore Configuration for ML Assignment 3
+# =====================================================================
+
+# 1. Raw Dataset (CIFAR-10) — download via scripts/run_q1.py or torchvision
+data/raw/
+*.tar.gz
+
+# 2. Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+
+# 3. Virtual Environments
+venv/
+env/
+.venv/
+ENV/
+
+# 4. IDE & Editor Artifacts
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 5. OS Clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 6. LaTeX Auxiliary Build Files (Preserve main.pdf, main.tex, cvpr.sty, references.bib, sections/)
+report/*.aux
+report/*.bbl
+report/*.blg
+report/*.brf
+report/*.log
+report/*.out
+report/*.synctex.gz
+report/*.toc
+
+# 7. Local logs or scratch files
+*.log
+scratch/
+*.zip

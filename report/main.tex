@@ -1,0 +1,73 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\graphicspath{{../figures/}{figures/}}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false,citecolor=blue,linkcolor=blue]{hyperref}
+
+% Compact section formatting
+\titlespacing\section{0pt}{4pt plus 1pt minus 1pt}{2pt plus 1pt minus 1pt}
+\titlespacing\subsection{0pt}{3pt plus 1pt minus 1pt}{1.5pt plus 1pt minus 1pt}
+\titlespacing\subsubsection{0pt}{2pt plus 1pt minus 1pt}{1pt plus 1pt minus 1pt}
+
+% Float and caption spacing optimization
+\setlength{\textfloatsep}{4pt plus 1pt minus 1pt}
+\setlength{\floatsep}{4pt plus 1pt minus 1pt}
+\setlength{\intextsep}{4pt plus 1pt minus 1pt}
+\setlength{\abovecaptionskip}{2pt plus 1pt minus 1pt}
+\setlength{\belowcaptionskip}{1pt plus 1pt minus 1pt}
+\setlength{\parskip}{0pt}
+
+% Display math spacing optimization
+\setlength{\abovedisplayskip}{3pt plus 1pt minus 1pt}
+\setlength{\belowdisplayskip}{3pt plus 1pt minus 1pt}
+\setlength{\abovedisplayshortskip}{1pt plus 1pt}
+\setlength{\belowdisplayshortskip}{2pt plus 1pt minus 1pt}
+
+% Float placement tolerances
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.85}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\dblfloatpagefraction}{0.85}
+
+% Document metadata
+\title{An Empirical and Theoretical Dissection of Visual Inductive Biases:\\MLP Bottlenecks, Convolutional Invariance, Autoencoders, and Kernel Geometry on CIFAR-10}
+
+\author{
+Harsh Mehta \quad Roll Number: \texttt{M26CSA013} \quad Deterministic Seed: \texttt{26013}\\
+GitHub: \href{https://github.com/HarshhhMehta/ML_Assignment_3}{\texttt{https://github.com/HarshhhMehta/ML_Assignment_3}} \quad Commit: \texttt{38b8da2}\\
+Machine Learning Assignment 3 — Department of Computer Science and Engineering
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Convolutional Neural Networks (CNNs) and Multi-Layer Perceptrons (MLPs) represent two fundamentally contrasting philosophies for visual representation learning. In this work, we conduct an extensive, mathematically rigorous empirical investigation across four core experimental questions on the CIFAR-10 benchmark under strict reproducibility safeguards (deterministic seed 26013, zero test tuning, and exact parameter budgets). First, we isolate the architectural failure of standard MLPs by demonstrating that enforcing local $8 \times 8$ receptive fields without weight sharing yields an immediate $+7.17\%$ test accuracy improvement ($57.94\%$ vs. $50.77\%$), confirming that absence of local connectivity is the primary bottleneck. Under $45\%$ effective label noise, an overparameterized MLP exhibits spectral bias, peaking at $44.30\%$ clean validation accuracy at Epoch 5 before late memorization expands the in-distribution generalization gap to $+46.38\%$. Second, under strict parameter parity ($\sim 112\text{k}$ parameters), we demonstrate that MLPs are completely invariant to spatial permutations ($50.77\%$ clean vs. $50.55\%$ pixel-permuted), whereas FairCNN collapses from $72.05\%$ down to $53.89\%$ under pixel scrambling while retaining $65.56\%$ under patch permutation. Third, symmetrical convolutional autoencoders spanning capacities $d \in \{64, 256, 1024\}$ reveal a monotonic correlation between reconstruction MSE ($0.00816 \to 0.00589$) and frozen linear probe accuracy ($36.66\% \to 40.16\%$), while a Denoising Autoencoder ($\sigma=0.2$) recovers $+7.5\%$ classification accuracy over raw corrupted inputs on a fixed downstream CNN classifier. Finally, a 15-configuration SVM sweep over frozen 64-D CNN features selects an RBF model ($C=0.1$) that matches end-to-end CNN accuracy ($71.64\%$ vs. $72.05\%$). We examine dual support vector geometry and raw One-vs-One boundary-proximity scores ($|f_{i,j}| < 0.006$) for the top-3 difficult class pairs, and demonstrate that unsupervised clustering (K-Means ARI $0.4537$, GMM ARI $0.4262$) discovers natural environmental and pose manifolds that diverge systematically from supervised margin hyperplanes.
+\end{abstract}
+
+\input{sections/01_introduction}
+\input{sections/02_dataset_protocol}
+\input{sections/03_q1_mlp_memorization}
+\input{sections/04_q2_cnn_vs_mlp_spatial}
+\input{sections/05_q3_autoencoders_representations}
+\input{sections/06_q4_svm_clustering_bonus}
+\input{sections/07_conclusion_limitations}
+
+{\small
+\bibliographystyle{ieeetr}
+\bibliography{references}
+}
+
+\end{document}

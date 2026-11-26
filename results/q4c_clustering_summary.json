@@ -1,0 +1,192 @@
+{
+  "kmeans_metrics": {
+    "ari": 0.4537478628047617,
+    "nmi": 0.5206348393619276,
+    "contingency_table": [
+      [
+        19,
+        820,
+        2,
+        5,
+        3,
+        3,
+        5,
+        1,
+        24,
+        82
+      ],
+      [
+        31,
+        18,
+        94,
+        535,
+        74,
+        279,
+        104,
+        58,
+        30,
+        31
+      ],
+      [
+        113,
+        2,
+        579,
+        83,
+        82,
+        42,
+        56,
+        46,
+        9,
+        6
+      ],
+      [
+        703,
+        37,
+        74,
+        17,
+        28,
+        7,
+        9,
+        32,
+        86,
+        40
+      ],
+      [
+        36,
+        97,
+        3,
+        10,
+        2,
+        2,
+        1,
+        14,
+        22,
+        799
+      ],
+      [
+        69,
+        18,
+        2,
+        12,
+        2,
+        3,
+        3,
+        1,
+        814,
+        23
+      ],
+      [
+        6,
+        5,
+        81,
+        73,
+        69,
+        15,
+        762,
+        5,
+        6,
+        3
+      ],
+      [
+        13,
+        2,
+        24,
+        15,
+        81,
+        35,
+        1,
+        682,
+        2,
+        10
+      ],
+      [
+        3,
+        0,
+        28,
+        181,
+        18,
+        537,
+        10,
+        84,
+        2,
+        1
+      ],
+      [
+        7,
+        1,
+        113,
+        69,
+        641,
+        77,
+        49,
+        77,
+        5,
+        5
+      ]
+    ],
+    "total_test_samples": 10000,
+    "row_sums": [
+      964,
+      1254,
+      1018,
+      1033,
+      986,
+      947,
+      1025,
+      865,
+      864,
+      1044
+    ],
+    "col_sums": [
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000,
+      1000
+    ]
+  },
+  "gmm_metrics": {
+    "ari": 0.4262,
+    "nmi": 0.5056
+  },
+  "disagreement_cases": [
+    {
+      "cluster_id": 1,
+      "dominant_class": "cat",
+      "dominant_count": 535,
+      "secondary_class": "dog",
+      "secondary_count": 279,
+      "total_cluster_samples": 1254
+    },
+    {
+      "cluster_id": 2,
+      "dominant_class": "bird",
+      "dominant_count": 579,
+      "secondary_class": "airplane",
+      "secondary_count": 113,
+      "total_cluster_samples": 1018
+    },
+    {
+      "cluster_id": 8,
+      "dominant_class": "dog",
+      "dominant_count": 537,
+      "secondary_class": "cat",
+      "secondary_count": 181,
+      "total_cluster_samples": 864
+    },
+    {
+      "cluster_id": 9,
+      "dominant_class": "deer",
+      "dominant_count": 641,
+      "secondary_class": "bird",
+      "secondary_count": 113,
+      "total_cluster_samples": 1044
+    }
+  ],
+  "svm_test_acc": 0.7164
+}

@@ -1,0 +1,32 @@
+\section{Dataset and Experimental Integrity Protocol}
+\label{sec:dataset}
+
+\subsection{CIFAR-10 Dataset Specifications}
+The CIFAR-10 dataset consists of $60{,}000$ $32 \times 32$ color images distributed across $10$ mutually exclusive semantic categories ($50{,}000$ training images and $10{,}000$ official evaluation images). Each image $\mathbf{x} \in \mathbb{R}^{3 \times 32 \times 32}$ represents an RGB tensor whose raw pixel values reside in $[0, 255]$. The 10 classes are: \textit{airplane, automobile, bird, cat, deer, dog, frog, horse, ship, and truck}.
+
+\subsection{Stratified Splitting and Deterministic Seeding}
+To establish strict experimental rigor, eliminate partition bias, and guarantee exact reproducibility, we construct a single fixed stratified split from the original $50{,}000$ training samples:
+\begin{itemize}
+    \item \textbf{Training Partition ($\mathcal{D}_{\text{train}}$):} Exactly $45{,}000$ images ($4{,}500$ images per class).
+    \item \textbf{Validation Partition ($\mathcal{D}_{\text{val}}$):} Exactly $5{,}000$ images ($500$ images per class).
+    \item \textbf{Official Held-Out Test Set ($\mathcal{D}_{\text{test}}$):} Exactly $10{,}000$ images ($1{,}000$ images per class).
+    \item \textbf{Q4 SVM Stratified Training Subset ($\mathcal{D}_{\text{svm}}$):} Exactly $5{,}000$ images ($500$ images per class), satisfying $\mathcal{D}_{\text{svm}} \subset \mathcal{D}_{\text{train}}$ and $|\mathcal{D}_{\text{svm}} \cap \mathcal{D}_{\text{val}}| = 0$.
+\end{itemize}
+
+In strict compliance with the assignment specification, the random seed is uniquely derived from the numeric characters of student roll number \texttt{M26CSA013}:
+\begin{equation}
+    \text{Seed} = 26013.
+\end{equation}
+The split indices were generated deterministically using NumPy's Mersenne Twister PRNG and saved permanently to disk as \texttt{data/split\_indices/train\_indices.npy}, \texttt{val\_indices.npy}, and \texttt{data/subset\_indices/q4\_svm\_subset\_indices.npy}. All scripts across all four questions load these identical binary indices without re-sampling.
+
+\subsection{Data Leakage Prevention Safeguards}
+We enforce strict operational safeguards across the entire scientific pipeline:
+\begin{enumerate}
+    \item \textbf{Quarantine of Official Test Data:} The official $10{,}000$-sample test set is strictly quarantined during all intermediate phases. Zero architecture choices, early stopping decisions, regularization sweeps, or clustering parameters are evaluated on test data. Each finalized model is evaluated on $\mathcal{D}_{\text{test}}$ strictly once after all experimental decisions are permanently fixed.
+    \item \textbf{Independent Preprocessing Statistics:} Standardized channel-wise mean and variance vectors:
+    \begin{equation}
+        \boldsymbol{\mu} = [0.4914, 0.4822, 0.4465], \quad \boldsymbol{\sigma} = [0.2470, 0.2435, 0.2616]
+    \end{equation}
+    were computed exclusively over the $45{,}000$-sample training partition $\mathcal{D}_{\text{train}}$ and applied frozen to $\mathcal{D}_{\text{val}}$ and $\mathcal{D}_{\text{test}}$. Similarly, feature standardizers for SVM inputs were fit strictly on the training subset representations.
+    \item \textbf{No Foundation or External Models:} All models—including MLPs, CNNs, autoencoders, linear probes, and kernel SVMs—are trained strictly from random initialization on local hardware without pretrained foundation models or external data.
+\end{enumerate}

@@ -1,0 +1,18 @@
+\section{Conclusion and Methodological Limitations}
+\label{sec:conclusion}
+
+\subsection{Synthesis of Scientific Findings}
+Across four rigorous experimental phases on CIFAR-10, this investigation demonstrates how structural priors, model capacity, and supervision shape visual representation learning:
+
+\noindent\textbf{1. Spatial Locality (Q1a):} Restricting receptive fields to $8 \times 8$ local neighborhoods without weight sharing yields an immediate $+7.17\%$ test gain over an unconstrained MLP ($57.94\%$ vs. $50.77\%$) under parameter parity ($\sim 112\text{k}$), proving that unlocalized global connectivity is the primary bottleneck of standard MLPs.
+
+\noindent\textbf{2. Spectral Dynamics (Q1b):} Under $45\%$ effective label noise, high-capacity MLPs exhibit early spectral bias, peaking at $44.30\%$ clean validation accuracy at Epoch 5 before late-stage memorization inverts the trajectory and degrades validation accuracy to $32.22\%$ ($+46.38\%$ generalization gap).
+
+\noindent\textbf{3. Topological Invariance (Q2):} Standard MLPs are mathematically and empirically invariant to spatial permutations ($50.77\%$ clean vs. $50.55\%$ pixel-permuted). Conversely, FairCNN achieves $72.05\%$ clean accuracy, retains $65.56\%$ under patch permutation, and collapses to $53.89\%$ under pixel scrambling, proving that convolutional efficacy relies predominantly on local pixel coherence.
+
+\noindent\textbf{4. Reconstruction vs. Semantics (Q3):} While autoencoder capacity directly reduces reconstruction MSE ($0.00816 \to 0.00589$), linear probe accuracy reaches only $40.16\%$, showing that unsupervised $L_2$ reconstruction captures background texture rather than semantic boundaries. Denoising autoencoders recover $+7.5\%$ accuracy on downstream CNNs.
+
+\noindent\textbf{5. Kernel Geometry vs. Clusters (Q4):} An RBF SVM ($C=0.1$) on frozen 64-D CNN features achieves $71.64\%$ test accuracy, matching the end-to-end CNN ($72.05\%$). Boundary-proximity scores ($|f_{i,j}| < 0.006$) reveal manifold tangency in hard pairs. Unsupervised clustering (K-Means NMI $0.5206$, GMM NMI $0.5056$) discovers natural environmental and pose manifolds that diverge systematically from supervised margin hyperplanes.
+
+\subsection{Methodological Limitations}
+We document four technical boundaries: (1) \textit{Hardware Budget:} CPU execution (8 threads) capped training to 20 epochs under standard convergence; (2) \textit{Deterministic Seed:} Partitions derived from roll number \texttt{M26CSA013} (seed $26013$); multi-seed runs would further quantify stochastic variance; (3) \textit{Feature Level:} Evaluated on penultimate 64-D features; and (4) \textit{Cluster Capacity:} Selecting $K=10$ on training representations represents a pragmatic elbow choice balancing compactness against over-fragmentation.
